@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Passport Application Form</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #e6f2ff; /* Light sky blue */
+      padding: 40px;
+      margin: 0;
+    }
+    h1 {
+      text-align: center;
+      color: #003366; /* Navy Blue */
+      margin-bottom: 30px;
+    }
+    form {
+      background-color: #ffffff; /* White */
+      padding: 30px 40px;
+      border-radius: 12px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+      color: #003366;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 8px;
+      border-radius: 8px;
+      border: 1px solid #b3cce6; /* Light border */
+      font-size: 16px;
+      transition: border-color 0.3s;
+    }
+    input:focus, textarea:focus {
+      border-color: #3399ff; /* Sky Blue */
+      outline: none;
+    }
+    button {
+      background-color: #0059b3; /* Dark Blue */
+      color: #fff;
+      padding: 12px 20px;
+      margin-top: 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #004080; /* Darker Navy */
+    }
+    #result {
+      text-align: center;
+      margin-top: 20px;
+      font-weight: bold;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Passport Application Form</h1>
+
+  <form id="passportForm">
+    <label>Full Name:</label>
+    <input type="text" name="fullName" placeholder="John Doe" required>
+
+    <label>Date of Birth:</label>
+    <input type="date" name="dob" required>
+
+    <label>Gender:</label>
+    <div style="margin-top: 8px;">
+      <label><input type="radio" name="gender" value="Male" required> Male</label>
+      <label style="margin-left: 20px;"><input type="radio" name="gender" value="Female" required> Female</label>
+    </div>
+
+    <label>Nationality:</label>
+    <input type="text" name="nationality" placeholder="Ugandan" required>
+
+    <label>Passport Number:</label>
+    <input type="text" name="passportNumber" pattern="[A-Za-z0-9]{6,9}" title="6-9 alphanumeric characters" placeholder="AB123456" required>
+
+    <label>Phone Number:</label>
+    <input type="tel" name="phone" pattern="[0-9]{10,15}" title="Enter a valid phone number" placeholder="+256700000000" required>
+
+    <label>Email:</label>
+    <input type="email" name="email" placeholder="email@example.com" required>
+
+    <label>Upload Passport Photo:</label>
+    <input type="file" name="photo" accept="image/*" required>
+
+    <label>Address:</label>
+    <textarea name="address" rows="4" placeholder="Enter your full residential address" required></textarea>
+
+    <button type="submit">Submit Application</button>
+
+    <p id="result"></p>
+  </form>
+
+  <script>
+    const form = document.getElementById('passportForm');
+    const result = document.getElementById('result');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      result.textContent = '✅ Application submitted successfully!';
+    });
+  </script>
+
+</body>
+</html>
